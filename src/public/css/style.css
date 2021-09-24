@@ -1,0 +1,34 @@
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+.login-with-facebook {
+    font-size: 14px !important;
+    font-weight: bold !important;
+}
+.fa-facebook-square {
+    font-size: 1.25em;
+}
+.or-line .left-line {
+    width: 40% !important;
+    margin-right: auto;
+}
+.or-line .right-line {
+    width: 40%;
+    margin-left: auto;
+}
+.or-line span {
+    font-size: 13px;
+    font-weight: bold;
+}
+.signup-form input {
+    font-size: 14px;
+    background-color: #fafafa;
+}
+.signup-form button {
+    font-size: 14px;
+    font-weight: bold;
+}
+.reg-footer-text {
+    font-size: 14px;
+}
+
