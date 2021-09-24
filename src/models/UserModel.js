@@ -13,6 +13,7 @@ const UserSchema = new Schema({
     }
 })
 
+
 async function UserModel () {
     let db = await client()
     return await db.model('users', UserSchema)
