@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-</head>
-<% var error; %> 
-<body>
-    <h2>Registration</h2>
-    <% if(error) { %>
-        <%= error %> 
-    <% } %>     
-    <form action="/signup" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="password">
-        <button type="submit">Sign Up</button>
-    </form>
-</body>
-</html>
+<%-include('parts/header') %>
+    <section class="vh-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <h2>Instagram</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<%-include('parts/footer') %> 
