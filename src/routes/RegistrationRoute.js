@@ -8,8 +8,11 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const body = await SignupValidation.validateAsync(req.body)
-        console.log(body);
+        const { phone, name, username, password } = await SignupValidation.validateAsync(req.body)
+        let user = await createUser(phone, name, username, password)
+        console.log(user);
+
+        res.redirect('/signup')
 
     } catch(e) {
         res.render('registration', {
