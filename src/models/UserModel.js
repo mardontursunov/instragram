@@ -5,6 +5,8 @@ const UserSchema = new Schema({
     phone: {
         type: Number,
         unique: true,
+        index: true,
+        trim: true,
         required: true
     },
     name: {
@@ -14,12 +16,17 @@ const UserSchema = new Schema({
     username: {
         type: String,
         unique: true,
+        index: true,
+        trim: true,
         lowercase: true,
         required: true
     },
     password: {
         type: String,
         required: true
+    },
+    bdate: {
+        type: Date
     }
 })
 
@@ -34,7 +41,12 @@ async function createUser (phone, name, username, password) {
         phone, name, username, password
     })
 }
+async function updateDate (ObjectId, bdate){
+    const db = await UserModel()
+    return await db.updateOne({_id: ObjectId}, { bdate })
+}
 
 module.exports = {
-    createUser
+    createUser,
+    updateDate
 }

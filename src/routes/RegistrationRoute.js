@@ -15,6 +15,9 @@ router.post('/', async (req, res) => {
         res.redirect('/signup')
 
     } catch(e) {
+        if(String(e).includes("duplicate key")){
+            e = "Phone or Username is already exists!"
+        }
         res.render('registration', {
             title: "Sign Up",
             error: e
