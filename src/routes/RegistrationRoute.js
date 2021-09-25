@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { createUser } = require('../models/UserModel')
+const { SignupValidation } = require('../validations/SignupValidation')
 
 router.get('/', (req, res) => {
     res.render('registration')
@@ -7,20 +8,14 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        let {email, password} = req.body
-        if (!(email && password)) throw new Error("Email or Password is not found")
+        const body = await SignupValidation.validateAsync(req.body)
+        console.log(body);
 
-        email = String(email)
-        email = email.toLowerCase()
-
-        await createUser(email, password)
-
-        res.redirect('/signup')
-    } catch (e) {
+    } catch(e) {
         res.render('registration', {
+            title: "Sign Up",
             error: e
         })
-        console.log(e);
     }
 })
 
