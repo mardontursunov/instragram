@@ -1,13 +1,14 @@
 const router = require('express').Router()
+const AuthMiddleware = require('../middlewares/AuthMiddleware')
 
-router.get('/', async (req, res) => {
+router.get('/bdate', AuthMiddleware, async (req, res) => {
     res.render('bdate', {
         title: "Birthday Date",
         error: ''
     })
 })
 
-router.post('/', async (req, res) => {
+router.post('/bdate', AuthMiddleware, async (req, res) => {
     try {
 
     } catch (e){
@@ -16,6 +17,6 @@ router.post('/', async (req, res) => {
 })
 
 module.exports = {
-    path: '/bdate',
+    path: '/signup',
     router: router
 }
