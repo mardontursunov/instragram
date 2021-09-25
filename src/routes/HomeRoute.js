@@ -1,8 +1,8 @@
 const router = require('express').Router();
-
-router.get('/', (req, res) => {
+const AuthMiddleware = require('../middlewares/AuthMiddleware')
+router.get('/', AuthMiddleware, (req, res) => {
     res.render('index', {
-        title: "Instagram"
+        title: "Home Page"
     })
 })
 
