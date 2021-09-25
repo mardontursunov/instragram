@@ -26,7 +26,15 @@ const UserSchema = new Schema({
         required: true
     },
     bdate: {
-        type: Date
+        bmonth: {
+            type: String,
+        },
+        bday: {
+            type: Number,
+        },
+        byear: {
+            type: Number,
+        }
     }
 })
 
