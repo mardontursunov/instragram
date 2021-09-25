@@ -4,9 +4,49 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card text-center p-5">
-                    <h1>Birthday Date</h1>
+                <div class="card text-center d-flex flex-column align-items-center p-5">
                     <img height="100" src="../images/birthday-cake.svg" alt="Birthday Cake">
+                    <h1 class="h5 mt-3">Add your birthday</h1>
+                    <h2 class="h6 mt-3">This won't be a part of your public profile</h2>
+                    <a class="text-decoration-none h6" href="#">Why do I need provide my birthday?</a>
+                    <form method="POST" class="form d-flex flex-column flex bday-form">
+                        <div class="d-flex mt-2">
+                            <select name="bmonth" class="form-select m-1 text-muted">
+                                <option value="january">January</option>
+                                <option value="february">February</option>
+                                <option value="mart">Mart</option>
+                                <option value="april">April</option>
+                                <option value="may">May</option>
+                                <option value="june">June</option>
+                                <option value="july">July</option>
+                                <option value="august">August</option>
+                                <option value="september">September</option>
+                                <option value="october">October</option>
+                                <option value="november">November</option>
+                                <option value="december">December</option>
+                            </select>
+                            <select name="bday" class="form-select m-1 text-muted">
+                                <% for(let i = 1; i < 32; i++) { %>
+                                    <option value="<%= i %> "><%= i %> </option>
+                                <% } %>   
+                            </select>
+                            <select name="bday" class="form-select m-1 text-muted">
+                                <% for(let i = 2017; i > 1930; i--) { %>
+                                    <option value="<%= i %> "><%= i %> </option>
+                                <% } %>   
+                            </select>
+                        </div>
+                        <p class="h6 text-muted mt-3">You need to enter the date you were born</p>
+                        <p class="h6 text-muted mt-3">Use your own birthday, even if this account is for a business, a pet, or something else</p>
+                        <button disabled type="submit" class="btn btn-primary w-100 mt-3 fw-bold">Next</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-3 justify-content-center">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card text-center p-4">
+                        <p class="m-0 ">Have an account <a class="text-decoration-none" href="#">Log in</a></p>
+                    </div>
                 </div>
             </div>
         </div>

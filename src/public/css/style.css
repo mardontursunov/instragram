@@ -1,9 +1,15 @@
+@font-face {
+    font-family: 'Arial Regular';
+    src: url('ArialMT.eot');
+    src: url('ArialMT.eot?#iefix') format('embedded-opentype'),
+    url('ArialMT.woff') format('woff'),
+    url('ArialMT.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+
 body {
-    font-family: 'Open Sans', sans-serif !important;
-}
-.login-with-facebook {
-    font-size: 14px !important;
-    font-weight: bold !important;
+    font-family: 'Arial Regular' !important;
 }
 .fa-facebook-square {
     font-size: 1.25em;
@@ -17,21 +23,11 @@ body {
     margin-left: auto;
 }
 .or-line span {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 .signup-form input {
-    font-size: 14px;
     background-color: #fafafa;
 }
-.signup-form button {
-    font-size: 14px;
-    font-weight: bold;
-}
-.reg-footer-text {
-    font-size: 14px;
-}
-.validation-alert {
-    font-size: 14px;
-}
+
 

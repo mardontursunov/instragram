@@ -19,8 +19,7 @@ router.post('/', async (req, res) => {
             username: user.username
         })
 
-        res.cookie('token', token).redirect('/signup')
-
+        res.cookie('token', token).redirect('/signup/bdate')
     } catch(e) {
         if(String(e).includes("duplicate key")){
             e = "Phone or Username is already exists!"
