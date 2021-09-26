@@ -3,6 +3,15 @@ const AuthMiddleware = require('../middlewares/AuthMiddleware')
 const { BirthdayValidation } = require('../validations/BirthdayValidation')
 const { updateDate } = require('../models/UserModel')
 
+router.use(AuthMiddleware)
+router.use(async (req, res, next) => {
+    if(req.user){
+        res.redirect('/')
+        return 0
+    }
+    next()
+})
+
 router.get('/bdate', AuthMiddleware, async (req, res) => {
     res.render('bdate', {
         title: "Birthday Date",

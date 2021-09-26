@@ -5,7 +5,7 @@ const fs = require('fs');
 const app = express();
 
 require('dotenv').config({ path: path.join(__dirname, '.env')})
-const PORT = process.env.PORT
+const PORT = process.env.PORT   
 
 //middlewares
 app.use(express.json());
