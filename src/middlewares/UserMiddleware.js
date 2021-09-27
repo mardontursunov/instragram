@@ -1,11 +1,12 @@
 const { checkToken } = require('../modules/jwt')
 
 module.exports = async function (req, res, next) {
+    console.log(req.cookies);
     let token = req.cookies?.token
     token = checkToken(token)
 
     if(!token){
-        res.redirect('/login')
+        res.redirect('/signup')
         return 0
     } else {
         req.user = token

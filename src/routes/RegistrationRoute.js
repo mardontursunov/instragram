@@ -6,6 +6,7 @@ const { generateToken } = require('../modules/jwt')
 const AuthMiddleware = require('../middlewares/AuthMiddleware')
 
 router.use(AuthMiddleware)
+
 router.use(async (req, res, next) => {
     if(req.user){
         res.redirect('/')
