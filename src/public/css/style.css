@@ -29,5 +29,11 @@ body {
 .signup-form input {
     background-color: #fafafa;
 }
-
+.navbar-search {
+    text-align: center;
+}
+.nav-list .nav-item .nav-link > img {
+    height: 23px !important;
+    width: 23px !important;
+}
 
