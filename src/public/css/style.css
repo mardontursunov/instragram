@@ -36,4 +36,15 @@ body {
     height: 23px !important;
     width: 23px !important;
 }
+.profile-icon {
+    border-radius: 50%;
+    height: 23px !important;
+    width: 23px !important;
+}
+.dropdown-toggle:focus {
+    box-shadow: none !important;
+}
+.profile-label {
+    cursor: pointer;
+}
 

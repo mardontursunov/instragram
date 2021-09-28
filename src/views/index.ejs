@@ -1,8 +1,16 @@
 <%-include('./parts/header') %> 
 <%-include('./parts/navbar')  %> 
-    <section class="">
-        <div class="container ">
-            <div class="text-center"><%= title %> </div>
+    <section class="my-4 py-4">
+        <div class="container">
+            <div class="row w-75 mx-auto">
+                <div class="col-3">
+                    <label class="profile-label ">
+                        <input type="file" class="visually-hidden">
+                        <img src="https://picsum.photos/150" alt="Avatar" class="rounded-circle">
+                    </label>
+                </div>
+                <div class="col-9"></div>
+            </div>
         </div>
     </section>
 <%-include('./parts/footer') %> 
