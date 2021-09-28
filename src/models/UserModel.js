@@ -54,7 +54,14 @@ async function updateDate (ObjectId, bdate){
     return await db.updateOne({_id: ObjectId}, { bdate })
 }
 
+async function findUser (login) {
+    let object = ((typeof login) == "string") ? { username: login } : { phone: login }
+    const db = await UserModel()
+    return await db.findOne( object )
+}
+
 module.exports = {
     createUser,
-    updateDate
+    updateDate,
+    findUser
 }

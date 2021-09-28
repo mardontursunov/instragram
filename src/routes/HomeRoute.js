@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const UserMiddleware = require('../middlewares/AuthMiddleware')
-
-router.use(UserMiddleware)
+const UserMiddleware = require('../middlewares/UserMiddleware')
 
 router.get('/', UserMiddleware, (req, res) => {
     res.render('index', {
