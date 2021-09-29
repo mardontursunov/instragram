@@ -11,7 +11,6 @@ router.get('/', UserMiddleware, async (req, res) => {
     let user = await findUser(req.user.username)
     const photoPath = path.join(__dirname, '..', 'public', 'avatar', `${req.user._id}.jpg`)
     let isExist = fsOld.existsSync(photoPath)
-    console.log(isExist);
     res.render('index', {
         title: "Home Page",
         user: req.user,
@@ -36,6 +35,6 @@ router.post('/photo', upload({ size: (1024 * 10) * 1024}), async (req, res) => {
 })
 
 module.exports = {
-    path: '/',
+    path: '/profile',
     router: router
 }

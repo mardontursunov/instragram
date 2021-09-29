@@ -1,3 +1,4 @@
+<% var photo = photo ? `/avatar/${user._id}.jpg` : '/images/notfound.jpg' %>
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom p-3 ">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">Instagram</a>
@@ -27,7 +28,7 @@
                 </li>
                 <div class="dropdown">
                     <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="profile-icon" src="https://picsum.photos/40" alt="heart icon">
+                        <img class="profile-icon" src="<%= photo %>" alt="heart icon">
                     </a>
                   
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">

@@ -32,3 +32,5 @@ fs.readdir(routesPath, (err, files) => {
 
 // listen
 app.listen(PORT, () => console.log("Server is running on *" + PORT));
+
+app.get('/', (req, res) => res.redirect('/profile'))

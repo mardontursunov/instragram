@@ -2,7 +2,7 @@ profilePhoto.addEventListener('change', async (e) => {
     if(e.target.files.length){
         let formdata = new FormData()
         formdata.append('photo', e.target.files[0])
-        let response = await fetch('/photo', {
+        let response = await fetch('profile/photo', {
             method: "POST",
             body: formdata        
         })
