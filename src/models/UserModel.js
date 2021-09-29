@@ -1,4 +1,4 @@
-const client = require('../modules/mongo')
+const client = require('../lib/mongo')
 const Schema = require('mongoose').Schema
 
 const UserSchema = new Schema({

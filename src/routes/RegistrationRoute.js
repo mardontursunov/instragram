@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { createUser } = require('../models/UserModel')
 const { SignupValidation } = require('../validations/SignupValidation')
-const { generateCrypt } = require('../modules/bcrypt')
-const { generateToken } = require('../modules/jwt')
+const { generateCrypt } = require('../lib/bcrypt')
+const { generateToken } = require('../lib/jwt')
 const AuthMiddleware = require('../middlewares/AuthMiddleware')
 
 router.use(AuthMiddleware)

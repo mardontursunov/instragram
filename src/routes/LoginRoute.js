@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const { findUser } = require('../models/UserModel')
 const { LoginValidation } = require('../validations/LoginValidation')
-const { checkCrypt } = require('../modules/bcrypt')
-const { generateToken } = require('../modules/jwt')
+const { checkCrypt } = require('../lib/bcrypt')
+const { generateToken } = require('../lib/jwt')
 
 router.get('/', (req, res) => {
     res.render('login', {
