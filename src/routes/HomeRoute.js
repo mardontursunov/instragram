@@ -8,9 +8,11 @@ router.get('/', UserMiddleware, (req, res) => {
     })
 })
 
-router.post('/upload', upload({ size: (1024 * 10) * 1024
- }), (req, res) => {
-
+router.post('/photo', upload({ size: (1024 * 10) * 1024}), async (req, res) => {
+    console.log(req.files);
+    res.send({
+        ok: true
+    })
 })
 
 module.exports = {
