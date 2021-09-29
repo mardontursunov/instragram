@@ -7,6 +7,10 @@ profilePhoto.addEventListener('change', async (e) => {
             body: formdata        
         })
         response = await response.json()
-        console.log(response);
+        if(response.ok){
+            window.location.reload()
+        } else {
+            alert("Error")
+        }
     }
 }) 

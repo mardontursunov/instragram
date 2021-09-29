@@ -1,12 +1,13 @@
 <%-include('./parts/header') %> 
-<%-include('./parts/navbar')  %> 
+<%-include('./parts/navbar')  %>
+<% var photo = photo ? `/avatar/${user._id}.jpg` : '/avatar/notfound.jpg' %> 
 <section class="my-4 py-4">
     <div class="container">
         <div class="row w-75 mx-auto align-items-center">
             <div class="col-3 d-flex align-items-center flex-column">
                 <label class="profile-label ">
                     <input accept="image/*" id="profilePhoto" type="file" class="visually-hidden">
-                    <img src="https://picsum.photos/150" alt="Avatar" class="rounded-circle">
+                    <img height="150" width="150" style="background-size: cover;" src="<%= photo %> " alt="Avatar" class="rounded-circle">
                 </label>
                 <span class="mt-2 text-muted">tap for upload</span>
             </div>
