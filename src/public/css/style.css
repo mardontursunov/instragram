@@ -54,6 +54,7 @@ body {
 .nav-tabs > .nav-item > .nav-link > p {
     font-size: 12px !important;
     letter-spacing: 1px;
+    color: #212529;
 }
 .nav-tabs > .nav-item {
     padding: 1rem;
@@ -61,3 +62,4 @@ body {
 .nav-tabs > .nav-item > .nav-link  {
     display: flex;
 }
+
