@@ -1,16 +1,37 @@
 <%-include('./parts/header') %> 
 <%-include('./parts/navbar')  %> 
-    <section class="my-4 py-4">
-        <div class="container">
-            <div class="row w-75 mx-auto">
-                <div class="col-3">
-                    <label class="profile-label ">
-                        <input type="file" class="visually-hidden">
-                        <img src="https://picsum.photos/150" alt="Avatar" class="rounded-circle">
-                    </label>
+<section class="my-4 py-4">
+    <div class="container">
+        <div class="row w-75 mx-auto align-items-center">
+            <div class="col-3">
+                <label class="profile-label ">
+                    <input type="file" class="visually-hidden">
+                    <img src="https://picsum.photos/150" alt="Avatar" class="rounded-circle">
+                </label>
+            </div>
+            <div class="col-9 p-lg-4">
+                <header class="d-flex align-items-center">
+                    <p class="fs-3 m-0">mardon_official</p>
+                    <a href="/edit" class="btn border ms-4 py-1 d-flex px-2">Edit profile</a>
+                    <button class="btn ms-2 settings-icon">
+                        <img src="/images/cogwheel.svg" alt="Settings icon">
+                    </button>
+                </header>
+                <div class="d-flex align-items-center mt-2">
+                    <p class="m-0 btn p-0">6 posts</p>
+                    <a class="btn ms-4" href="/followers">1390 followers</a>
+                    <a class="btn ms-2" href="/followings">85 following</a>
                 </div>
-                <div class="col-9"></div>
+                <div class="mt-2">
+                    <p class="fs-6 m-0">Mardon Tursunov</p>
+                    <p class="fs-6 m-0 text-muted">Personal blog</p>
+                    <p class="fs-6 m-0">Software Engineer</p>
+                    <a class="text-decoration-none" href="github.com/mardontursunov
+                    ">github.com/mardontursunov
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</div>
+</section>
 <%-include('./parts/footer') %> 
