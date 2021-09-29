@@ -51,4 +51,13 @@ body {
     height: 23px !important;
     width: 23px !important;
 }
-
+.nav-tabs > .nav-item > .nav-link > p {
+    font-size: 12px !important;
+    letter-spacing: 1px;
+}
+.nav-tabs > .nav-item {
+    padding: 1rem;
+}
+.nav-tabs > .nav-item > .nav-link  {
+    display: flex;
+}
