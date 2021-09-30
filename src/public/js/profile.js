@@ -16,10 +16,16 @@ profilePhoto.addEventListener('change', async (e) => {
 })
 
 followButton.addEventListener('click', async (e) => {
-    console.log(e.target.getAttribute('data-id'));
+    let username = e.target.getAttribute('data-username')
     try {
         let response = await fetch('./follow', {
-            method: "POST"
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username
+            })
         })
         response = await response.json()
         console.log(response);

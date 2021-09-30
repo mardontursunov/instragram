@@ -35,9 +35,15 @@ async function myFollowers (user_id) {
     return await db.find({ follow_user: user_id })
 }
 
+async function findFollower (user_id, follow_user) {
+    const db = await FollowerModel()
+    return await db.findOne({ user_id: user_id, follow_user: follow_user })
+}
+
 module.exports = {
     addFollower,
     deleteFollower,
     myFollowers,
-    myFollowings
+    myFollowings,
+    findFollower
 }
