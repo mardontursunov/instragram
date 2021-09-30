@@ -28,7 +28,13 @@ followButton.addEventListener('click', async (e) => {
             })
         })
         response = await response.json()
-        console.log(response);
+        if(response.ok){
+            e.target.classList.toggle('btn-primary')
+            e.target.classList.toggle('border')
+            response.followOld ? e.target.textContent = "Follow" : e.target.textContent = "Unfollow"
+        } else {
+            alert('error')
+        }
 
     } catch (e) {
         

@@ -5,7 +5,7 @@ const fs = require('fs/promises')
 const fsOld = require('fs')
 const path = require('path')
 const { findUser } = require('../models/UserModel')
-const { myFollowers, findFollower, addFollower } = require('../models/FollowerModel')
+const { myFollowers, findFollower, addFollower, deleteFollower } = require('../models/FollowerModel')
 
 router.use(UserMiddleware)
 
@@ -26,13 +26,16 @@ router.get('/:username', UserMiddleware, async (req, res) => {
     const { username } = req.params
     let user = await findUser(username)
     let followers = await myFollowers( req.user._id )
+    let followOld = await findFollower(req.user._id, user._id)
+
     const photoPath = path.join(__dirname, '..', 'public', 'avatar', `${req.user._id}.jpg`)
     let isExist = fsOld.existsSync(photoPath)
     res.render('index', {
         title: "Home Page",
         user: user,
         photo: isExist,
-        thisUser: req.user
+        thisUser: req.user,
+        oldFollow: followOld ? true : false
     })
 })
 
@@ -43,11 +46,14 @@ router.post('/follow', UserMiddleware, async (req, res) => {
         let { _id: user_id } = req.user
 
         let followOld = await findFollower(user_id, follow_id)
-        if(followOld) throw new Error("Follower already added!")
-        let following = await addFollower(user_id, follow_id)
-        
+        if(followOld) {
+            await deleteFollower(user_id, follow_id)
+        } else {
+             await addFollower(user_id, follow_id)
+        }
         res.status(200).send({
             ok: true,
+            followOld: followOld ? true : false,
             message: "Follower added successfuly!"
         })
         
