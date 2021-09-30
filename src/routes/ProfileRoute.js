@@ -5,10 +5,13 @@ const fs = require('fs/promises')
 const fsOld = require('fs')
 const path = require('path')
 const { findUser } = require('../models/UserModel')
+const { myFollowers } = require('../models/FollowerModel')
 
 router.use(UserMiddleware)
 router.get('/', UserMiddleware, async (req, res) => {
     let user = await findUser(req.user.username)
+    let followers = await myFollowers( req.user._id )
+    console.log(followers);
     const photoPath = path.join(__dirname, '..', 'public', 'avatar', `${req.user._id}.jpg`)
     let isExist = fsOld.existsSync(photoPath)
     res.render('index', {
@@ -19,7 +22,6 @@ router.get('/', UserMiddleware, async (req, res) => {
 })
 
 router.post('/photo', upload({ size: (1024 * 10) * 1024}), async (req, res) => {
-    // console.log(req.files.photo.data);
     try {
         const photoPath = path.join(__dirname, '..', 'public', 'avatar', `${req.user._id}.jpg`)
         const fileStream = await fs.writeFile(photoPath, req.files.photo.data)

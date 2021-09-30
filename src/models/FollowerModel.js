@@ -1,0 +1,43 @@
+const client = require('../lib/mongo')
+const Schema = require('mongoose').Schema
+
+const FollowerSchema = new Schema({
+    user_id: {
+        type: Schema.Types.ObjectId
+    },
+    follow_user: {
+        type: Schema.Types.ObjectId
+    }
+})
+
+async function FollowerModel () {
+    let db = await client()
+    return await db.model('followers', FollowerSchema)
+}
+
+async function addFollower (user_id, follow_user){
+    const db = await FollowerModel()
+    return await db.create({ user_id: user_id, follow_user: follow_user })
+}
+
+async function deleteFollower (user_id, follow_user){
+    const db = await FollowerModel()
+    return await db.deleteOne({ user_id: user_id, follow_user: follow_user })
+}
+
+async function myFollowings (user_id) {
+    const db = await FollowerModel()
+    return await db.find({ user_id: user_id })
+}
+
+async function myFollowers (user_id) {
+    const db = await FollowerModel()
+    return await db.find({ follow_user: user_id })
+}
+
+module.exports = {
+    addFollower,
+    deleteFollower,
+    myFollowers,
+    myFollowings
+}
