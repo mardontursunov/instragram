@@ -50,12 +50,10 @@ followersButton.addEventListener('click', async (e) => {
     console.log(username);
 
     try {
-        let response = await fetch('./followers?' + 'username=' + username, {
-
-        })
+        let response = await fetch('profile/followers?' + 'username=' + username)
         response = await response.json()
         console.log(response);
     } catch (e) {
-
+        console.log(e);
     }
 })

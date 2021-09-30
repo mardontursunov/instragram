@@ -33,10 +33,10 @@ router.post('/follow', UserMiddleware, async (req, res) => {
         if(followOld) {
             await deleteFollower(user_id, follow_id)
         } else {
-             await addFollower(user_id, follow_id)
-            }
-            res.status(200).send({
-                ok: true,
+            await addFollower(user_id, follow_id)
+        }
+        res.status(200).send({
+            ok: true,
             followOld: followOld ? true : false,
             message: "Follower added successfuly!"
         })
@@ -48,6 +48,18 @@ router.post('/follow', UserMiddleware, async (req, res) => {
         })
     }
     
+})
+
+router.get('/followers', async (req, res) => {
+    try {
+        console.log(req.query);
+        
+    } catch (e) {
+        console.log(e);
+        res.status(400).send({
+            ok: false
+        })
+    }
 })
 
 router.post('/photo', upload({ size: (1024 * 10) * 1024}), async (req, res) => {
