@@ -13,4 +13,18 @@ profilePhoto.addEventListener('change', async (e) => {
             alert("Error")
         }
     }
-}) 
+})
+
+followButton.addEventListener('click', async (e) => {
+    console.log(e.target.getAttribute('data-id'));
+    try {
+        let response = await fetch('./follow', {
+            method: "POST"
+        })
+        response = await response.json()
+        console.log(response);
+
+    } catch (e) {
+        
+    }
+})

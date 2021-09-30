@@ -14,10 +14,14 @@
             <div class="col-9 p-lg-4">
                 <header class="d-flex align-items-center">
                     <p class="fs-3 m-0"><%= user.username %> </p>
+                    <% if(thisUser._id == user._id) {%> 
                     <a href="/edit" class="btn border ms-4 py-1 d-flex px-2">Edit profile</a>
                     <button class="btn ms-2 settings-icon">
                         <img src="/images/cogwheel.svg" alt="Settings icon">
                     </button>
+                    <% } else { %>
+                        <button type="button" class="btn btn-primary ms-4 py-1 px-4" id="followButton" data-id="<%= user._id %> ">Follow</button>
+                    <% } %> 
                 </header>
                 <div class="d-flex align-items-center mt-2">
                     <p class="m-0 btn p-0">6 posts</p>
