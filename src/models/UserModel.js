@@ -1,6 +1,12 @@
 const client = require('../lib/mongo')
 const Schema = require('mongoose').Schema
 
+const FollowerSchema = new Schema({
+    user_id: {
+        type: Schema.Types.ObjectId
+    }
+})
+
 const UserSchema = new Schema({
     phone: {
         type: Number,
@@ -35,7 +41,10 @@ const UserSchema = new Schema({
         byear: {
             type: Number,
         }
-    }
+    },
+    follower: [
+
+    ]
 })
 
 async function UserModel () {
