@@ -28,8 +28,8 @@
                 </header>
                 <div class="d-flex align-items-center mt-2">
                     <p class="m-0 btn p-0">6 posts</p>
-                    <a class="btn ms-4" href="/followers">1390 followers</a>
-                    <a class="btn ms-2" href="/followings">85 following</a>
+                    <button class="btn ms-4" data-bs-toggle="modal" data-bs-target="#followers" data-username="<%= user.username %> " id="followersButton" >1390 followers</button>
+                    <button class="btn ms-2" >85 following</button>
                 </div>
                 <div class="mt-2">
                     <p class="fs-6 m-0"><%= user.name %> </p>
@@ -122,6 +122,22 @@
           </div>
     </div>
 </section>
+
+<!-- Button trigger modal -->  
+  <!-- Modal -->
+  <div class="modal fade" id="followers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Followers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script src="/js/profile.js"></script>
 <%-include('./parts/footer') %> 

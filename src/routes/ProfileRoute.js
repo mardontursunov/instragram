@@ -22,37 +22,21 @@ router.get('/', UserMiddleware, async (req, res) => {
     })
 })
 
-router.get('/:username', UserMiddleware, async (req, res) => {
-    const { username } = req.params
-    let user = await findUser(username)
-    let followers = await myFollowers( req.user._id )
-    let followOld = await findFollower(req.user._id, user._id)
-
-    const photoPath = path.join(__dirname, '..', 'public', 'avatar', `${req.user._id}.jpg`)
-    let isExist = fsOld.existsSync(photoPath)
-    res.render('index', {
-        title: "Home Page",
-        user: user,
-        photo: isExist,
-        thisUser: req.user,
-        oldFollow: followOld ? true : false
-    })
-})
 
 router.post('/follow', UserMiddleware, async (req, res) => {
     try {
         const { username } = req.body
         let { _id: follow_id } = await findUser(username)
         let { _id: user_id } = req.user
-
+        
         let followOld = await findFollower(user_id, follow_id)
         if(followOld) {
             await deleteFollower(user_id, follow_id)
         } else {
              await addFollower(user_id, follow_id)
-        }
-        res.status(200).send({
-            ok: true,
+            }
+            res.status(200).send({
+                ok: true,
             followOld: followOld ? true : false,
             message: "Follower added successfuly!"
         })
@@ -79,6 +63,23 @@ router.post('/photo', upload({ size: (1024 * 10) * 1024}), async (req, res) => {
             ok: false
         })
     }
+})
+
+router.get('/:username', UserMiddleware, async (req, res) => {
+    const { username } = req.params
+    let user = await findUser(username)
+    let followers = await myFollowers( req.user._id )
+    let followOld = await findFollower(req.user._id, user._id)
+
+    const photoPath = path.join(__dirname, '..', 'public', 'avatar', `${req.user._id}.jpg`)
+    let isExist = fsOld.existsSync(photoPath)
+    res.render('index', {
+        title: "Home Page",
+        user: user,
+        photo: isExist,
+        thisUser: req.user,
+        oldFollow: followOld ? true : false
+    })
 })
 
 module.exports = {

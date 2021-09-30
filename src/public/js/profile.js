@@ -1,3 +1,7 @@
+let profilePhoto = document.getElementById('profilePhoto')
+let followButton = document.getElementById('followButton') || document.createElement('button')
+let followersButton = document.getElementById('followersButton')
+
 profilePhoto.addEventListener('change', async (e) => {
     if(e.target.files.length){
         let formdata = new FormData()
@@ -38,5 +42,20 @@ followButton.addEventListener('click', async (e) => {
 
     } catch (e) {
         
+    }
+})
+
+followersButton.addEventListener('click', async (e) => {
+    let username = e.target.getAttribute('data-username')
+    console.log(username);
+
+    try {
+        let response = await fetch('./followers?' + 'username=' + username, {
+
+        })
+        response = await response.json()
+        console.log(response);
+    } catch (e) {
+
     }
 })
