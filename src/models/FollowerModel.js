@@ -32,7 +32,21 @@ async function myFollowings (user_id) {
 
 async function myFollowers (user_id) {
     const db = await FollowerModel()
-    return await db.find({ follow_user: user_id })
+    return await db.aggregate([
+        {
+            $match: {
+                follow_user: user_id
+            }
+        },
+        {
+            $lookup: {
+                from: "users",
+                localField: "user_id",
+                foreignField: "_id",
+                as: "user"
+            }
+        }
+    ])
 }
 
 async function findFollower (user_id, follow_user) {

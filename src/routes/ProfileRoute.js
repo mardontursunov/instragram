@@ -48,11 +48,25 @@ router.post('/follow', UserMiddleware, async (req, res) => {
         })
     }
     
+    
 })
 
 router.get('/followers', async (req, res) => {
     try {
-        console.log(req.query);
+        const { username } = req.query
+        let { _id } = await findUser(username)
+        let followers = await myFollowers(_id)
+        followers = await followers.map(follower => {
+            const photoPath = path.join(__dirname, '..', 'public', 'avatar', `${follower.user_id}.jpg`)
+            let isExist = fsOld.existsSync(photoPath)
+            return {
+                id: follower.user[0]._id,
+                name: follower.user[0].name,
+                username: follower.user[0].username ,
+                isExist
+            }
+        })
+        console.log(followers);
         
     } catch (e) {
         console.log(e);

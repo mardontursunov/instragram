@@ -47,8 +47,7 @@ followButton.addEventListener('click', async (e) => {
 
 followersButton.addEventListener('click', async (e) => {
     let username = e.target.getAttribute('data-username')
-    console.log(username);
-
+    
     try {
         let response = await fetch('profile/followers?' + 'username=' + username)
         response = await response.json()
